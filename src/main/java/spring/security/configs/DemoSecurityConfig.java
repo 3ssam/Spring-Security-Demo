@@ -20,7 +20,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication()
 		.withUser(users.username("john").password("test123").roles("EMPLOYEE"))
 		.withUser(users.username("mary").password("test123").roles("MANAGER","EMPLOYEE"))
-		.withUser(users.username("susan").password("test123").roles("ADMIN","EMPLOYEE"));
+		.withUser(users.username("susan").password("test123").roles("ADMIN","EMPLOYEE"))
+		.withUser(users.username("ahmed").password("test123").roles("EMPLOYEE","ADMIN","MANAGER"));
+
 	}
 
 	@Override
