@@ -12,4 +12,9 @@ public class LoginController {
 	public String showMyLoginPage() {
 		return "login-form";
 	}
+	
+	@GetMapping("/showMyFancyPage")
+	public String showMyFancyPage() {
+		return "fancy-login";
+	}
 }
