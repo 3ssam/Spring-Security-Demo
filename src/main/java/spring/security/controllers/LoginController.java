@@ -28,10 +28,10 @@ public class LoginController {
 		return "systems-page";
 	}
 	
-	/*@GetMapping("/access-denied")
+	@GetMapping("/access-denied")
 	public String showAccessDeniedPage() {
 		return "access-denied-page";
-	}*/
+	}
 
 
 }
