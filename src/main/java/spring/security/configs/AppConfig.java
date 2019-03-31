@@ -37,8 +37,20 @@ public class AppConfig {
 		} catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}
-		
-		return null;
+		// for sanity's sake, let's log url and user ... just to make sure we are
+		// reading the data
+		logger.info(">>>> jdbc.url=" + env.getProperty("jdbc.url"));
+		logger.info(">>>> jdbc.user=" + env.getProperty("jdbc.user"));
+		// set database connection props
+		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		securityDataSource.setUser(env.getProperty("jdbc.user"));
+		securityDataSource.setPassword(env.getProperty("jdbc.password"));
+		// set connection pool props
+		securityDataSource.setInitialPoolSize(Integer.parseInt(env.getProperty("connection.pool.initialPoolSize")));
+		securityDataSource.setMinPoolSize(Integer.parseInt(env.getProperty("connection.pool.minPoolSize")));
+		securityDataSource.setMaxPoolSize(Integer.parseInt(env.getProperty("connection.pool.maxPoolSize")));
+		securityDataSource.setMaxIdleTime(Integer.parseInt(env.getProperty("connection.pool.maxIdleTime")));
+		return securityDataSource;
 	}
 
 	@Bean
