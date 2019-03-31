@@ -16,6 +16,13 @@ Run Succeeful
 </h1>
 <h1>User: <security:authentication property="principal.username"/> </h1>
 <h1>Roles: <security:authentication property="principal.authorities"/> </h1>
+<hr>
+<a href="${pageContext.request.contextPath }/leaders">Leadership Meeting</a>
+<p>(Only for Manager peeps)</p>
+<br>
+<a href="${pageContext.request.contextPath }/systems">IT Systems Meeting</a>
+<p>(Only for Admin peeps)</p>
+<hr>
 <form:form action="${pageContext.request.contextPath }/logout" method="POST">
 <input type="submit" value="logout"/>
 </form:form>
